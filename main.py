@@ -8,7 +8,7 @@ def analyzer_position(positions):
     index_plus_eloigner = distances.index(max(distances))
     plus_eloigner = positions[index_plus_eloigner]
     tri_x = sorted(positions, key=lambda p: p[0], reverse=True)
-    unique = {x for x, y in positions}
+    unique = {(x, y) for x, y in positions if x > y }
     return moyenne, plus_eloigner, tri_x, unique
 positions = [(1, 0), (2, 2), (0, 1), (2, 2)]
 print(analyzer_position(positions))
@@ -42,7 +42,7 @@ class Entite(ABC):
     def __str__(self):
         return f"{self.nom} {self.annee_arrivee}"
 
-class Animal(Entite):
+#class Animal(Entite):
 
 
 
